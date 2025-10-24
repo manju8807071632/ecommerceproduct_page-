@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Orders - Flower Shop</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #ff69b4;
+      padding: 20px 40px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #222;
+    }
+
+    .orders {
+      flex: 1;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .orders h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #d6336c;
+    }
+
+    .order-list {
+      max-width: 1000px;
+      width: 100%;
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .order {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-left: 5px solid #ff69b4;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      background: #fafafa;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .order:hover {
+      transform: scale(1.01);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .order img {
+      width: 120px;
+      height: 120px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-right: 20px;
+      border: 2px solid #eee;
+    }
+
+    .order-details h3 {
+      margin-bottom: 6px;
+      font-size: 20px;
+    }
+
+    .order-details p {
+      font-size: 14px;
+      margin: 4px 0;
+      color: #555;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .delivered {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .shipped {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+
+    .processing {
+      background-color: #d1ecf1;
+      color: #0c5460;
+    }
+
+    .cancelled {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .order {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .order img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+      }
+
+      .navbar a {
+        font-size: 14px;
+        margin-left: 10px;
+      }
+
+      .orders h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">flower<span>.</span></a>
+    <nav class="navbar">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#products">Products</a>
+      <a href="account.html">My Account</a>
+    </nav>
+  </header>
+
+  <section class="orders">
+    <h1>📦 My Orders</h1>
+
+    <div class="order-list">
+
+      <div class="order">
+        <img src="images/img-1.jpg" alt="Tulip Bouquet">
+        <div class="order-details">
+          <h3>Order #1001 - Rose Bouquet</h3>
+          <p>Placed on: Sept 15, 2025</p>
+          <p>Quantity: 1</p>
+          <span class="status delivered">Delivered</span>
+        </div>
+      </div>
+
+      <div class="order">
+        <img src="images/img-2.jpg" alt="Tulip Arrangement">
+        <div class="order-details">
+          <h3>Order #1002 - Lily Arrangement</h3>
+          <p>Placed on: Sept 20, 2025</p>
+          <p>Quantity: 2</p>
+          <span class="status shipped">Shipped</span>
+        </div>
+      </div>
+
+      <div class="order">
+        <img src="images/img-3.jpg" alt="Tulip Vase">
+        <div class="order-details">
+          <h3>Order #1003 - Tulip Vase</h3>
+          <p>Placed on: Sept 22, 2025</p>
+          <p>Quantity: 1</p>
+          <span class="status processing">Processing</span>
+        </div>
+      </div>
+
+      <div class="order">
+        <img src="images/img-15.jpg" alt="Tulip Bunch">
+        <div class="order-details">
+          <h3>Order #1004 - Sunflower Bunch</h3>
+          <p>Placed on: Sept 23, 2025</p>
+          <p>Quantity: 1</p>
+          <span class="status cancelled">Cancelled</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Flower Shop. All rights reserved.
+  </footer>
+
+</body>
+</html>

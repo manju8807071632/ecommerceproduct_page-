@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flower Shop Sale ‒ Limited Time</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff0f5;
+    }
+
+    header {
+      background: #f8dce0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #c2185b;
+      font-size: 2rem;
+    }
+
+    /* Video section */
+    .video-container {
+      position: relative;
+      max-width: 700px;
+      margin: 20px auto 40px auto;
+    }
+
+    .video-container video {
+      width: 100%;
+      border: 0.5rem solid black;
+      border-radius: 0.5rem;
+      box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.1);
+      display: block;
+    }
+
+    /* Overlay "Shop Now" text */
+    .video-title {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 10px 25px;
+      font-size: 1.4rem;
+      color: #c2185b;
+      border-radius: 25px;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      white-space: nowrap;
+    }
+
+    /* Content section */
+    .content {
+      text-align: center;
+      margin: 30px;
+    }
+
+    .content h2 {
+      font-size: 2.2rem;
+      color: #c2185b;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #c2185b;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      transition: background 0.3s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: #a01347;
+      transform: scale(1.05);
+    }
+
+    .countdown {
+      font-size: 2rem;
+      color: #e91e63;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      .content h2 {
+        font-size: 1.6rem;
+      }
+
+      .countdown {
+        font-size: 1.5rem;
+      }
+
+      .video-title {
+        font-size: 1.1rem;
+        padding: 8px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌸 Big Flower Sale ‒ Up to 50% Off!</h1>
+  </header>
+
+  <!-- Video section -->
+  <div class="video-container">
+    <h3 class="video-title">🛍️Shop Now</h3>
+    <video autoplay loop muted playsinline>
+      <source src="video/video-3.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Text content -->
+  <div class="content">
+    <h2>Don’t Miss Out!</h2>
+    <p>Beautiful bouquets & arrangements with special discounts. Perfect for surprise gifts or brightening your space.</p>
+
+    <div class="countdown" id="countdown">Offer ends in: Loading...</div>
+
+    <a href="index.html#products" class="btn">Browse Products</a>
+  </div>
+
+  <!-- Countdown Timer -->
+  <script>
+    const countdown = document.getElementById("countdown");
+    const saleEnd = new Date();
+    saleEnd.setDate(saleEnd.getDate() + 3); // 3 days from now
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = saleEnd - now;
+
+      if (distance < 0) {
+        countdown.innerText = "Sale Ended!";
+        clearInterval(timerInterval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerText = `Offer ends in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    const timerInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
+
+
